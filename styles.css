@@ -1,0 +1,131 @@
+:root {
+  color-scheme: dark;
+  --bg: #0d1117;
+  --panel: #161b22;
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --accent: #58a6ff;
+  --accent-2: #1f6feb;
+  --danger: #f85149;
+  --border: #30363d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: radial-gradient(circle at top, #1b2735, var(--bg) 35%);
+  color: var(--text);
+}
+
+.app {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.header p {
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 200px auto;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+input,
+select,
+button {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  border-radius: 0.5rem;
+  padding: 0.65rem 0.8rem;
+  font-size: 0.95rem;
+}
+
+button {
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  border-color: var(--accent);
+}
+
+#favoritesToggle[aria-pressed="true"] {
+  background: var(--accent-2);
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 0.85rem;
+}
+
+.movie-card {
+  background: rgba(22, 27, 34, 0.92);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.movie-card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.movie-card__title {
+  margin: 0;
+  font-size: 1.02rem;
+}
+
+.movie-card__year,
+.movie-card__meta {
+  color: var(--muted);
+  margin: 0;
+}
+
+.movie-card__description {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.favorite-button {
+  margin-top: auto;
+}
+
+.favorite-button.is-favorite {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.empty-state {
+  color: var(--muted);
+  grid-column: 1 / -1;
+  text-align: center;
+  border: 1px dashed var(--border);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+}
+
+@media (max-width: 720px) {
+  .controls {
+    grid-template-columns: 1fr;
+  }
+}
