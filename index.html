@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <h1>🎬 Movies App</h1>
+        <p>Browse, search, and save your favorite films.</p>
+      </header>
+
+      <section class="controls">
+        <input id="searchInput" type="search" placeholder="Search by title, genre, or year..." />
+        <select id="genreFilter">
+          <option value="all">All genres</option>
+        </select>
+        <button id="favoritesToggle" type="button" aria-pressed="false">Show favorites only</button>
+      </section>
+
+      <section>
+        <h2 id="resultsTitle">All movies</h2>
+        <div id="movieGrid" class="movie-grid" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <template id="movieCardTemplate">
+      <article class="movie-card">
+        <div class="movie-card__header">
+          <h3 class="movie-card__title"></h3>
+          <span class="movie-card__year"></span>
+        </div>
+        <p class="movie-card__meta"></p>
+        <p class="movie-card__description"></p>
+        <button class="favorite-button" type="button"></button>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
